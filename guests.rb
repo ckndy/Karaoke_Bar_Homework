@@ -1,14 +1,15 @@
 class Guest
 
-  attr_reader :name, :favourite_song
-  attr_accessor :money
+  attr_accessor :name
 
   def initialize
 
     @name = name
-    @money = money
-    @favourite_song = favourite_song
+    #@money = money
+    #@favourite_song = favourite_song
   end
 
-
+  def guest_name
+    return @name
+  end
 end

@@ -1,12 +1,11 @@
 class Rooms
 
-  attr_reader :rooms, :songs
-  attr_accessor :guests
+  attr_accessor :guests, :songs
 
   def initialize()
     @name = name
-    @songs =
-    @guests =
+    @songs = songs
+    @guests = guests
 
 end
 
@@ -18,4 +17,8 @@ def remove_guest(guest)
   @guest.shift()
 end
 
-def guest_favourite_song(guest, song)
+def add_song()
+  @songs << @song4
+
+  end
+end

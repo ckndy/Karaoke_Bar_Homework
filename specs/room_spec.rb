@@ -3,7 +3,7 @@ require_relative ("minitest/rg")
 require_relative ("../Room")
 require_relative ("../Song")
 require_relative ("../Guest")
-require_relative ("../Bar")
+# require_relative ("../Bar")
 
 
 class TestRoom < Minitest::Test
@@ -12,28 +12,30 @@ class TestRoom < Minitest::Test
 
     @room = Room.new()
 
-    @song1 = Song.new("Rolling Stones", "Gimme Shelter")
-    @song2 = Song.new()
-    @song3 = Song.new()
-    @song4 = Song.new()
-    @song5 = Song.new()
-    @song6 = Song.new()
-    @song7 = Song.new()
-    @song8 = Song.new()
-    @song9 = Song.new()
-    @song10 = Song.new()
+    @song1 = Song.new("Sex Pistols", "God Save the Queen")
+    @song2 = Song.new("Elvis Costello", "(What's So Funny 'Bout) Peace Love & Understanding")
+    @song3 = Song.new("The Pretenders", "Brass in Pocket")
+    @song4 = Song.new("Roxy Music", "More Than This")
+    #I took inspiration from the karaoke bar scene in 'Lost in Translation'.
 
-    @guest1 = Guest.new("Chris",2000 )
-    @guest2 = Guest.new("Iona",1000)
+    @guest1 = Guest.new("Chris")
+    @guest2 = Guest.new("Iona" )
 
-    @bar = Bar.new()
+    #@bar = Bar.new()
+  end
 
+  def test_add_guest_to_room
+    @room.add guest_to_room(@guest1, @guest2)
+    assert_equal("Chris", @guest1.name, "Iona", @guest2.name)
+  end
 
-end
+  def test_remove_guest_from_room
+    @room.remove guest_from_room(@guest1)
+    assert_equal("Chris", @guest1.name)
+  end
 
-def test_add_guest_to_room
-  @room.add_guest(@guest)
-  assert_equal(1, @room.guest_count()))
-
-end
+  def test_add_song_to_room
+    @room.add song_to_room(@song4)
+    assert_equal("Roxy Music", @song4.artist)
+  end
 end
